@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fancy-weather/static/css/main.c7493619.css",
+    "main.js": "/fancy-weather/static/js/main.32080813.js",
+    "index.html": "/fancy-weather/index.html",
+    "main.c7493619.css.map": "/fancy-weather/static/css/main.c7493619.css.map",
+    "main.32080813.js.map": "/fancy-weather/static/js/main.32080813.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c7493619.css",
+    "static/js/main.32080813.js"
+  ]
+}
