@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/fancy-weather/static/css/main.c7493619.css",
-    "main.js": "/fancy-weather/static/js/main.04739e32.js",
+    "main.js": "/fancy-weather/static/js/main.244d827f.js",
     "index.html": "/fancy-weather/index.html",
     "main.c7493619.css.map": "/fancy-weather/static/css/main.c7493619.css.map",
-    "main.04739e32.js.map": "/fancy-weather/static/js/main.04739e32.js.map"
+    "main.244d827f.js.map": "/fancy-weather/static/js/main.244d827f.js.map"
   },
   "entrypoints": [
     "static/css/main.c7493619.css",
-    "static/js/main.04739e32.js"
+    "static/js/main.244d827f.js"
   ]
 }
