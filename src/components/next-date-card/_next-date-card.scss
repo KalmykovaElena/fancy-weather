@@ -1,0 +1,13 @@
+.next-weather {
+  &-date {
+    font-size: 22px;
+  }
+  &-description{
+    display: flex;
+    font-size: 80px;
+    .weather-img{
+      position: relative;
+      top:-2rem;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.current-weather {
+  &-city {
+    font-size: 44px;
+    font-weight: 700;
+    line-height: 54px;
+    text-transform: uppercase;
+  }
+
+  &-date {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+  }
+
+  &__details {
+    display: flex;
+    gap: 2rem;
+
+    &-temp {
+      font-size: 306px;
+      font-weight: 700;
+      display: flex;
+      align-items: start;
+
+      span {
+        margin-top: 4rem;
+        font-size: 100px;
+      }
+    }
+
+    &-description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      li {
+        list-style: none;
+        font-size: 22px;
+        line-height: 37px;
+
+        &:first-child {
+          text-transform: uppercase;
+        }
+
+      }
+    }
+
+    .weather-img {
+      position: relative;
+
+      img {
+        width: 162px;
+        position: absolute;
+        top: -2rem;
+        left: -7rem;
+      }
+    }
+  }
+}
+
+
+
+

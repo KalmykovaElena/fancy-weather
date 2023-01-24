@@ -1,0 +1,29 @@
+@import'./components/app/app';
+@import 'components/formComponents/button/button';
+@import'./components/header/header';
+@import 'components/weather-container/weather-container';
+@import 'components/current-date-card/current-date-card';
+@import 'components/weather-details/weather-details';
+@import 'components/next-date-card/next-date-card';
+@import 'components/formComponents/search-form/search-form';
+@import 'components/currentTime/currentTime';
+@import 'components/mapp-container/map-container';
+
+html {
+  height: 100%;
+
+  & * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  & body {
+    height: 100%;
+  }
+}
+button{
+  cursor: pointer;
+}
+
