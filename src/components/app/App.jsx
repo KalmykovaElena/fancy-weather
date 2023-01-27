@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import WeatherContainer from "../weather-container/WeatherContainer";
+import {getLinkToImage, getWeather} from "../actions";
 
 class App extends Component {
-
+    componentDidMount() {
+        this.props.bgImg()
+    }
     render() {
         return (
             <div className={'app'} style={{backgroundImage: this.props.background}}>
@@ -15,14 +18,18 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state)
     return {
         background: state.backgroundImage,
     }
+}
+const mapDispatchToProps = (dispatch) => {
+
+    return {
+        bgImg:getLinkToImage(dispatch)
+    }
 
 }
-
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps,mapDispatchToProps)(App);
 
 
 

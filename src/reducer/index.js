@@ -1,7 +1,7 @@
 import {FETCH_CITY_WEATHER, SET_CURRENT_TIME, SET_UNITS_OF_MEASUREMENT} from "../components/actions";
 
 const initialState = {
-    backgroundImage: 'url(/img/bg-3.jpg)',
+    backgroundImage: '',
     lang: 'en',
     isCelsius:true,
     apiData:{

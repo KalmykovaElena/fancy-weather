@@ -1,0 +1,191 @@
+.app {
+  max-width: 1440px;
+  height: 100%;
+  color: #ffffff;
+  position: relative;
+  background-size: 100vw 100%;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+.app:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(8, 15, 26, 0.59) 0%, rgba(17, 17, 46, 0.46) 100%);
+  position: absolute;
+  top: 0;
+}
+
+.updateImage {
+  background-image: url("../../../assets/Refresh BG.png");
+  background-size: cover;
+  height: 44px;
+  width: 44px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+}
+.app-header-buttons {
+  display: flex;
+  gap: 10px;
+}
+.app-header-buttons .change-temp button {
+  height: 44px;
+  width: 44px;
+  border-radius: 5px;
+  color: #ffffff;
+  background-color: rgba(174, 181, 185, 0.5019607843);
+  border: none;
+}
+.app-header-buttons .change-temp button.active {
+  background-color: rgba(175, 182, 186, 0.8);
+}
+
+select {
+  height: 44px;
+  width: 71px;
+  background-color: rgba(174, 181, 185, 0.5019607843);
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.app-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 40px 90px;
+}
+
+.current-weather-city {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 54px;
+  text-transform: uppercase;
+}
+.current-weather-date {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+}
+.current-weather__details {
+  display: flex;
+  gap: 2rem;
+}
+.current-weather__details-temp {
+  font-size: 306px;
+  font-weight: 700;
+  display: flex;
+  align-items: flex-start;
+}
+.current-weather__details-temp span {
+  margin-top: 4rem;
+  font-size: 100px;
+}
+.current-weather__details-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.current-weather__details-description li {
+  list-style: none;
+  font-size: 22px;
+  line-height: 37px;
+}
+.current-weather__details-description li:first-child {
+  text-transform: uppercase;
+}
+.current-weather__details .weather-img {
+  position: relative;
+}
+.current-weather__details .weather-img img {
+  width: 162px;
+  position: absolute;
+  top: -2rem;
+  left: -7rem;
+}
+
+.next-weather-block {
+  display: flex;
+}
+
+.weather-details-container {
+  margin-top: 57px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.next-weather-date {
+  font-size: 22px;
+}
+.next-weather-description {
+  display: flex;
+  font-size: 80px;
+}
+.next-weather-description .weather-img {
+  position: relative;
+  top: -2rem;
+}
+
+form input {
+  width: 274px;
+  height: 44px;
+  background-color: rgba(75, 81, 84, 0.5);
+  font-size: 14px;
+  box-sizing: border-box;
+  padding: 15px;
+  border-radius: 5px;
+}
+form button {
+  width: 101px;
+  height: 44px;
+  background-color: rgba(174, 181, 185, 0.5019607843);
+  color: #FFFFFF;
+  border-radius: 5px;
+  border: none;
+}
+
+.current-time {
+  margin-left: 18px;
+}
+
+.map-container {
+  text-align: right;
+  line-height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 35px;
+  width: 100%;
+  align-items: flex-end;
+  font-size: 20px;
+}
+.map-container-img {
+  width: 375px;
+  height: 375px;
+  border-radius: 25px;
+  overflow: hidden;
+  margin-bottom: 35px;
+}
+
+html {
+  height: 100%;
+}
+html * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+html body {
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=index.css.map */

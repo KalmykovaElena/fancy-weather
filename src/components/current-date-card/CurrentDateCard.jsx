@@ -4,17 +4,20 @@ import {connect} from "react-redux";
 
 class CurrentDateCard extends Component {
     render() {
-        const {currentCity,renderDate,apiData,lang}=this.props
-       const {main:{temp,feels_like,humidity},wind:{speed:wind},weather:[{description,icon}]}=this.props.data
-        const country = (new Intl.DisplayNames([this.props.lang], {type: 'region'}).of(this.props.currentCountry))
+        const {currentCity,currentCountry, renderDate, apiData, lang} = this.props
+        const {
+            main: {temp, feels_like, humidity},
+            wind: {speed: wind},
+            weather: [{description, icon}]
+        } = this.props.data
+        const country = (new Intl.DisplayNames([lang], {type: 'region'}).of(currentCountry))
         return (
             <div className='current-weather'>
                 <h1 className="current-weather-city">{currentCity},{country}</h1>
                 <div className="current-weather-date">{renderDate}
-                <CurrentTime/>
+                    <CurrentTime/>
                 </div>
                 <div className="current-weather__details">
-
                     <div className="current-weather__details-temp">{Math.round(temp)}<span>°</span></div>
                     <div className="weather-img">
                         <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt=""/>
@@ -31,9 +34,10 @@ class CurrentDateCard extends Component {
         );
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         ...state
     }
 }
-export default connect(mapStateToProps) (CurrentDateCard);
+export default connect(mapStateToProps)(CurrentDateCard);

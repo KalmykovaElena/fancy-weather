@@ -28,8 +28,6 @@ export function getWeather(dispatch) {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                console.log(Object.values(data.city.coord))
                 const cityData = {
                     city: data.city,
                     coord:Object.values(data.city.coord),
