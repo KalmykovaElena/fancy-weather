@@ -1,56 +1,61 @@
 import React, {Component} from 'react';
 import Button from "../formComponents/button";
-import {currentMeasurement, getLinkToImage, getWeather} from "../actions";
+import { currentMeasurement, getLinkToImage, getWeather, setLanguage} from "../actions";
 import {connect} from "react-redux";
 import './_header.scss'
 import SearchForm from "../formComponents/search-form";
 
 class Header extends Component {
     render() {
-        const {city,lang,isCelsius}= this.props
+        const {city, lang, isCelsius, changeLanguage, hasError, getWeather, setMeasurement} = this.props
         return (
             <div className={'app-header'}>
                 <div className={'app-header-buttons'}>
                     <Button class={'updateImage'} onClick={() => this.props.getLinkToImage()}/>
-                    <select value={localStorage.getItem('currentLanguage') || 'en'}
+                    <select value={lang}
                             onChange={(event) => {
-                                localStorage.setItem('currentLanguage', event.target.value)
-                                this.props.getWeather(city)
+                                changeLanguage(event.target.value)
+                                if (!hasError) {
+                                    getWeather(city, event.target.value)
+                                }
                             }} name={'lang'}>
                         <option value={'en'}>EN</option>
                         <option value={'ru'}>RU</option>
                     </select>
                     <div className={'change-temp'}>
                         <button className={isCelsius ? '' : 'active'} onClick={() => {
-                            this.props.setMeasurement(false)
-                            localStorage.setItem('currentMeasurement', 'imperial')
-                            this.props.getWeather(city, lang)
+                            setMeasurement(false)
+                            getWeather(city, lang, 'imperial')
                         }}>{'F°'}</button>
                         <button className={isCelsius ? 'active' : ''} onClick={() => {
-                            this.props.setMeasurement(true)
-                            localStorage.setItem('currentMeasurement', 'metric')
-                            this.props.getWeather(city, lang)
+                            setMeasurement(true)
+                            getWeather(city, lang)
                         }}>{'C°'}</button>
                     </div>
                 </div>
                 <SearchForm/>
             </div>
         );
+
     }
 }
 
 const mapStateToProps = (state) => {
     return {
         city: state.currentCity,
-        isCelsius: state.isCelsius
+        isCelsius: state.isCelsius,
+        hasError: state.hasError,
+        lang: state.lang
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
         getLinkToImage: getLinkToImage(dispatch),
         getWeather: getWeather(dispatch),
-        setMeasurement: (data) => dispatch(currentMeasurement(data))
+        setMeasurement: (data) => dispatch(currentMeasurement(data)),
+        changeLanguage: (lang) => dispatch(setLanguage(lang))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
+
 

@@ -1,9 +1,15 @@
-import {FETCH_CITY_WEATHER, SET_CURRENT_TIME, SET_UNITS_OF_MEASUREMENT} from "../components/actions";
+import {
+    SET_HAS_ERROR,
+    FETCH_CITY_WEATHER,
+    SET_LANGUAGE,
+    SET_UNITS_OF_MEASUREMENT
+} from "../components/actions";
 
 const initialState = {
-    backgroundImage: '',
+    backgroundImage: 'url(/img/bg-3.jpg)',
     lang: 'en',
     isCelsius:true,
+    hasError: false,
     apiData:{
         en: {
             placeholder: 'search city',
@@ -21,6 +27,16 @@ const initialState = {
             humidity: 'ВЛАЖНОСТЬ',
             unit:'м/с'
         }
+    },
+    errorInfo:{
+        en:{
+            title:'ERROR!!!',
+            errorCity:'city not found'
+        },
+        ru:{
+            title:'ОШИБКА!!!',
+            errorCity:'город не найден'
+        }
     }
 }
 
@@ -31,7 +47,11 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 backgroundImage: `url(${action.payload})`
             }
-
+        case SET_HAS_ERROR:
+            return {
+                ...state,
+                hasError: action.payload,
+            };
         case FETCH_CITY_WEATHER:
             return {
                 ...state,
@@ -41,10 +61,10 @@ export const reducer = (state = initialState, action) => {
                 currentCityData: action.payload.list,
                 lang:action.payload.lang
             }
-        case SET_CURRENT_TIME:
+            case SET_LANGUAGE:
             return {
                 ...state,
-                time: action.payload,
+                lang: action.payload,
             }
             case SET_UNITS_OF_MEASUREMENT:
             return {

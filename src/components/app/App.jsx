@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import WeatherContainer from "../weather-container/WeatherContainer";
-import {getLinkToImage, getWeather} from "../actions";
+import {getLinkToImage} from "../actions";
 
 class App extends Component {
     componentDidMount() {

@@ -3,6 +3,7 @@ import {getWeather} from "../../actions";
 import {connect} from "react-redux";
 
 class SearchForm extends Component {
+
     render() {
         const {data, lang, getWeather, isCelsius} = this.props
         return (
@@ -10,6 +11,7 @@ class SearchForm extends Component {
                 event.preventDefault()
                 const city = event.target.elements.city.value
                 getWeather(city, lang, isCelsius ? 'metric' : 'imperial')
+
             }}>
                 <input type="text" name='city' placeholder={data[lang].placeholder}/>
                 <button>{data[lang].button}</button>
@@ -25,9 +27,9 @@ const mapStateToProps = (state) => {
         isCelsius: state.isCelsius
     }
 }
-const mapDispatchToProps = (dispatch, city) => {
+const mapDispatchToProps = (dispatch, city, lang) => {
     return {
-        getWeather: getWeather(dispatch, city)
+        getWeather: getWeather(dispatch, city, lang)
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SearchForm);

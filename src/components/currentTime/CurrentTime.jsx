@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {currentTime} from "../actions";
-import {connect} from "react-redux";
-
 
 class CurrentTime extends Component {
+    state = {
+        time: ''
+    }
     componentDidMount() {
-        this.timeId = setInterval(() => this.props.setTime(new Date().toLocaleTimeString()), 1000)
+        this.timeId = setInterval(() => this.setState({time:new Date().toLocaleTimeString()}), 1000)
     }
 
     componentWillUnmount() {
@@ -15,22 +15,10 @@ class CurrentTime extends Component {
     render() {
         return (
             <span className={'current-time'}>
-          {this.props.time}
+          {this.state.time}
             </span>
         );
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        time: state.time
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-
-    return {
-        setTime:(time)=>dispatch(currentTime( time))
-    }
-
-}
-export default connect(mapStateToProps, mapDispatchToProps)(CurrentTime);
+export default CurrentTime;

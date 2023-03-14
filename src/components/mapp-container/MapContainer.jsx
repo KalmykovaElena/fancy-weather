@@ -12,7 +12,10 @@ class MapContainer extends Component {
                 <Map state={{
                     center:this.props.coordinates,
                     zoom: 5,
-                }} width={'375px'}height={'375px'} >
+                }}
+                     className={'map-container__map'}
+                     // width={'375px'}height={'375px'}
+                >
                     <Placemark geometry={this.props.coordinates}/>
                 </Map>
 

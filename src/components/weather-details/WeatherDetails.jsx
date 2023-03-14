@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import {getLinkToImage, getWeather} from "../actions";
+import { getWeather} from "../actions";
 import {connect} from "react-redux";
 import {getCurrentDate} from "../../utils/getCurrentDate";
 import CurrentDateCard from "../current-date-card";
 import {getCity} from "../../utils/getCity";
 import MapContainer from "../mapp-container/MapContainer";
 import NextDateContainer from "../next-date-container";
+import Error from "../error";
 
 class WeatherDetails extends Component {
     componentDidMount() {
@@ -13,6 +14,10 @@ class WeatherDetails extends Component {
     }
 
     render() {
+        if(this.props.hasError){
+            return <Error/>
+        }
+        console.log('render WeatherDetails')
         const {currentCityData,lang,coord} = this.props
         if (currentCityData) {
             const renderDate = (getCurrentDate(currentCityData[0].dt_txt, 'short', lang));
@@ -20,7 +25,7 @@ class WeatherDetails extends Component {
 
             return (
                 <div className="weather-details-container">
-                    <div>
+                    <div className="weather-value">
                         <CurrentDateCard data={currentDetails} renderDate={renderDate}/>
                         <NextDateContainer data={currentCityData}/>
                     </div>

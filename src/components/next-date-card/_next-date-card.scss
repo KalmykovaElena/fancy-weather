@@ -8,6 +8,15 @@
     .weather-img{
       position: relative;
       top:-2rem;
+      img{
+        @media screen and (max-width: 1010px){
+          width: 70px;
+        }
+      }
+
+    }
+    @media screen and (max-width: 460px){
+      font-size: 45px;
     }
   }
 }
