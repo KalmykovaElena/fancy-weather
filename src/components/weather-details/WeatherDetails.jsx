@@ -17,17 +17,15 @@ class WeatherDetails extends Component {
         if(this.props.hasError){
             return <Error/>
         }
-        console.log('render WeatherDetails')
         const {currentCityData,lang,coord} = this.props
         if (currentCityData) {
             const renderDate = (getCurrentDate(currentCityData[0].dt_txt, 'short', lang));
             const currentDetails = currentCityData[0]
-
             return (
                 <div className="weather-details-container">
                     <div className="weather-value">
                         <CurrentDateCard data={currentDetails} renderDate={renderDate}/>
-                        <NextDateContainer data={currentCityData}/>
+                        <NextDateContainer data={currentCityData} lang = {lang}/>
                     </div>
                     <MapContainer coordinates={coord}/>
                 </div>

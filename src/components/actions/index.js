@@ -22,7 +22,6 @@ export function getLinkToImage(dispatch) {
         fetch(url)
             .then(res => {
                 if (res.ok) {
-                    console.log('res.ok')
                     return res.json()
                 }
 
